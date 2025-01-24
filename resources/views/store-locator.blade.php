@@ -36,7 +36,7 @@
             { name: "Ratnapura", keywords: ['ratnapura', 'pelmadulla', 'balangoda', 'opanayaka', 'embilipitiya', 'badulla', 'belihuloya', 'haputale', 'kuruvita'], lat: 6.6822580, lng: 80.4007600, address: 'Ratnapura Address', details: 'Details for Ratnapura branch' }
         ];
 
-        // Function to add a marker with a "Get Directions" button
+        // Function to add a marker (without Get Directions button)
         function addMarker(branch) {
             const marker = new google.maps.Marker({
                 map: map,
@@ -50,7 +50,6 @@
                         <h3>${branch.name}</h3>
                         <p>${branch.address}</p>
                         <p>${branch.details}</p>
-                        <button onclick="getDirections(${branch.lat}, ${branch.lng})" class="bg-blue-500 text-white p-2 rounded-md mt-2">Get Directions</button>
                     </div>
                 `);
                 infowindow.open(map, marker);
@@ -84,37 +83,8 @@
                 alert('No branch found for the search term.');
             }
         });
-
-        // Function to get directions from the user's location to the branch
-        window.getDirections = function(lat, lng) {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    const userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                    const directionsService = new google.maps.DirectionsService();
-                    const directionsRenderer = new google.maps.DirectionsRenderer();
-                    directionsRenderer.setMap(map);
-
-                    const request = {
-                        origin: userLocation,
-                        destination: { lat: lat, lng: lng },
-                        travelMode: google.maps.TravelMode.DRIVING
-                    };
-
-                    directionsService.route(request, function (result, status) {
-                        if (status == google.maps.DirectionsStatus.OK) {
-                            directionsRenderer.setDirections(result);
-                        } else {
-                            alert('Directions request failed due to ' + status);
-                        }
-                    });
-                });
-            } else {
-                alert('Geolocation is not supported by this browser.');
-            }
-        };
     };
 </script>
-
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQ1-sdpIHmBI8fyl_F4xT-a-PBoz5qvQY&libraries=places&callback=initMap" defer></script>
 @endsection
