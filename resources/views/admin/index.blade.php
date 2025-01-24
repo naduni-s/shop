@@ -51,6 +51,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+<<<<<<< HEAD
             <!-- Heading -->
             <div class="sidebar-heading">
                 Features
@@ -71,6 +72,10 @@
                     <!-- Divider -->
                     <hr class="sidebar-divider">
 
+=======
+         
+           
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                     <!-- Heading -->
                     <div class="sidebar-heading">
                         Features
@@ -101,7 +106,16 @@
     </a>
 </li>
 
+<<<<<<< HEAD
 
+=======
+<li class="nav-item">
+    <a class="nav-link collapsed" href="{{route('addbranch')}}" aria-expanded="true" aria-controls="">
+        <i class="fas fa-flask"></i>
+        <span>Add Branches</span>
+    </a>
+</li>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
            <!-- Nav Item - orders Collapse Menu -->
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
@@ -122,6 +136,7 @@
 
              <!-- Nav Item - review Collapse Menu -->
              <li class="nav-item">
+<<<<<<< HEAD
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target=""
                     aria-expanded="true" aria-controls="">
                     <i class="fas fa-fw fa-star"></i>
@@ -129,6 +144,14 @@
                 </a>
                
             </li>
+=======
+                <a class="nav-link collapsed" href="{{route('admin.review')}}" aria-expanded="true" aria-controls="">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews</span>
+                </a>
+            </li>
+            
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -234,6 +257,7 @@
                             </div>
                         </div>
 
+<<<<<<< HEAD
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
@@ -264,6 +288,9 @@
                             </div>
                         </div>
 
+=======
+                
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">

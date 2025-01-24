@@ -7,8 +7,13 @@
         <div class="flex items-center space-x-2"> 
         <form method="GET" action="{{ route('filter.women') }}" class="flex items-center space-x-2">
             <label class="text-sm font-medium">Filter by price</label>
+<<<<<<< HEAD
             <input type="range" id="price-range" name="max_price" class="w-40" min="700" max="4000" value="4000" step="100" oninput="updatePrice()">
             <span class="text-sm">Price LKR <span id="price-min">700</span> - LKR <span id="price-max">4000</span></span>
+=======
+            <input type="range" id="price-range" name="max_price" class="w-40" min="700" max="3000" value="3000" step="100" oninput="updatePrice()">
+                <span class="text-sm">Price LKR <span id="price-min">700</span> - LKR <span id="price-max">3000</span></span>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
             <button type="submit" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Filter</button>
         </form>
     </div>

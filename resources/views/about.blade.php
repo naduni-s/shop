@@ -40,7 +40,11 @@
     <div class="bg-gray-900 text-white py-10">
         <div class="container mx-auto flex flex-wrap justify-center space-x-8">
             <div class="text-center px-6 py-4">
+<<<<<<< HEAD
                 <div class="text-yellow-400 text-4xl font-bold">12,000+</div>
+=======
+                <div class="text-yellow-400 text-4xl font-bold">8000+</div>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                 <p>Social Media Followers</p>
             </div>
             <div class="text-center px-6 py-4">
@@ -48,7 +52,11 @@
                 <p>Brands</p>
             </div>
             <div class="text-center px-6 py-4">
+<<<<<<< HEAD
                 <div class="text-yellow-400 text-4xl font-bold">10,000+</div>
+=======
+                <div class="text-yellow-400 text-4xl font-bold">5000+</div>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                 <p>Website Visitors</p>
             </div>
         </div>

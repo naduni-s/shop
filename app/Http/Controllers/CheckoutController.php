@@ -25,11 +25,14 @@ class CheckoutController extends Controller
         'payment_method' => 'required',
     ]);
 
+<<<<<<< HEAD
     
 
     
     
 
+=======
+>>>>>>> 5d9d91a (Initial commit or Updated files)
     session()->forget('cart');
 
     return redirect()->route('home')->with('success', 'Your order has been confirmed!');

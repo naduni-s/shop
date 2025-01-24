@@ -12,11 +12,18 @@
 <div class="min-h-screen flex flex-col items-center bg-gray-100 py-8">
     <div class="w-full max-w-6xl flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
         
+<<<<<<< HEAD
         <div class="md:w-1/2 p-4 flex items-center justify-center bg-gray-50">
             <img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}" 
                  class="w-full h-80 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
         </div>
 
+=======
+    <div class="md:w-1/2 p-4 flex items-center justify-center bg-gray-50">
+    <img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}" 
+         class="w-full h-80 object-contain rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+</div>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
         <div class="md:w-1/2 p-6">
             <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ $product->name }}</h1>
             <p class="text-lg text-gray-700 mb-6">{{ $product->description }}</p>
@@ -34,7 +41,11 @@
                 <label for="size" class="mr-4 text-lg font-semibold text-gray-800">Size:</label>
                 <select id="size" name="size" class="p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400">
                     <option value="2ml" data-price="{{ $product->price }}">2ml - LKR {{ number_format($product->price, 2) }}</option>
+<<<<<<< HEAD
                     <option value="5ml" data-price="{{ $product->price +1000 }}">5ml - LKR {{ number_format($product->price +1000, 2) }}</option>
+=======
+                    <option value="5ml" data-price="{{ $product->price +1500 }}">5ml - LKR {{ number_format($product->price +1500, 2) }}</option>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                     <option value="10ml" data-price="{{ $product->price +2000 }}">10ml - LKR {{ number_format($product->price +2000, 2) }}</option>
                 </select>
             </div>

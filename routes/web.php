@@ -24,6 +24,11 @@ use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\NormalOrderController;
 use App\Http\Controllers\RefillOrderController;
 use App\Http\Controllers\TrackController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\BranchLocatorController;
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +48,14 @@ Route::get('/privacy', function () {
     return view('privacy');
 })->name('privacy');
 
+<<<<<<< HEAD
+=======
+Route::get('/terms-and-conditions', function () {
+    return view('terms-and-conditions');
+})->name('terms-and-conditions');
+
+
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 Route::get('/about', function () {
     return view('about');
 })->name('about');
@@ -53,6 +66,16 @@ Route::get('/contact', function () {
 
 Route::match(['get', 'post'], '/recommender', [PerfumeController::class, 'recommendPerfume'])->name('recommender');
 
+<<<<<<< HEAD
+=======
+Route::get('/add-branches', [BranchController::class, 'index'])->name('addbranch');
+Route::post('/branches', [BranchController::class, 'store'])->name('storebranch');
+Route::put('/branches/{id}', [BranchController::class, 'update'])->name('updatebranch');
+Route::delete('/branches/{id}', [BranchController::class, 'destroy'])->name('destroybranch');
+Route::get('/branches', [BranchController::class, 'index'])->name('branches.index');
+
+Route::get('/api/branches', [BranchController::class, 'getBranches']);
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 
 /* Authenticated Routes */
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -189,8 +212,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/my-requests', [RefillRequestController::class, 'index'])->name('refilling_request.index');
 });
 
+<<<<<<< HEAD
 Route::get('/tracking', [TrackController::class, 'Track'])->name('tracking');
 
+=======
+Route::get('/tracking', [TrackController::class, 'Track'])->name('tracking')->middleware('auth');
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 
 
 Route::get('/refilling-request', [RefillRequestController::class, 'create'])->name('refilling_request.create');
@@ -238,4 +265,15 @@ Route::put('/refill-orders/{id}/update-status', [DeliveryController::class, 'upd
     ->name('updateDeliveryStatus');
 
   
+<<<<<<< HEAD
 
+=======
+//review routes
+Route::post('/products/{product}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::get('/reviews', [ReviewController::class, 'index'])->name('admin.review');
+Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+Route::get('/order-success', function () {
+    return view('order-success');
+})->name('order.success');
+>>>>>>> 5d9d91a (Initial commit or Updated files)

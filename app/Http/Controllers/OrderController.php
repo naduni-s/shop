@@ -3,6 +3,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\Facades\Auth;
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 
 class OrderController extends Controller
 {
@@ -39,6 +43,10 @@ class OrderController extends Controller
         $order->total_price = $validatedData['total_price'];
         $order->payment_method = $validatedData['payment_method'];
         $order->delivery_status = 'Pending';
+<<<<<<< HEAD
+=======
+        $order->user_id = Auth::id();
+>>>>>>> 5d9d91a (Initial commit or Updated files)
         $order->save(); // Save order to the database
 
         // Clear the cart session
@@ -48,8 +56,11 @@ class OrderController extends Controller
         return redirect('/')->with('success', 'Order placed successfully!');
     }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5d9d91a (Initial commit or Updated files)
     public function updateDeliveryStatus(Request $request, $id)
 {
     // Validate the incoming data
@@ -71,8 +82,11 @@ class OrderController extends Controller
     return redirect()->back()->with('success', 'Delivery status updated successfully.');
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 public function destroy($id)
 {
     $order = Order::findOrFail($id);
@@ -80,7 +94,10 @@ public function destroy($id)
 
     return redirect()->route('delivery.dashboard')->with('success', 'Order deleted successfully');
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5d9d91a (Initial commit or Updated files)
     
 }

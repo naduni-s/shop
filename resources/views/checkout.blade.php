@@ -156,7 +156,15 @@
     // Submit the form if all validations pass
     if (isValid) {
         try {
+<<<<<<< HEAD
             checkoutForm.submit(); // Submit the form
+=======
+            // Confirm the order with an alert
+            alert("Nice! Thank you for placing an order at Scentsation");
+
+            // Submit the form
+            checkoutForm.submit();
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 
             // Clear the cart session
             await fetch('/cart/clear', {
@@ -167,15 +175,28 @@
                 }
             });
 
+<<<<<<< HEAD
             alert("Order placed successfully!");
             window.location.href = '/';
         } catch (error) {
             console.error('Error during order submission:', error);
             
+=======
+            // Show a success message and redirect to home page
+            alert("Order placed successfully!");
+            window.location.href = '/';  // Redirect to the home page
+        } catch (error) {
+            console.error('Error during order submission:', error);
+>>>>>>> 5d9d91a (Initial commit or Updated files)
         }
     }
 });
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 </script>
 
 @endsection

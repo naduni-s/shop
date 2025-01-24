@@ -121,6 +121,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+<<<<<<< HEAD
             <!-- Heading -->
             <div class="sidebar-heading">
                 Features
@@ -139,6 +140,9 @@
             </li>
     
                     <hr class="sidebar-divider">
+=======
+            
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                     <div class="sidebar-heading">
                         Features
                     </div>
@@ -185,11 +189,19 @@
     </div>
 </li>
 
+<<<<<<< HEAD
              <!-- Nav Item - review Collapse Menu -->
              <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target=""
                     aria-expanded="true" aria-controls="">
                     <i class="fas fa-fw fa-star"></i>
+=======
+            
+             <!-- Nav Item - review Collapse Menu -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('admin.review')}}" aria-expanded="true" aria-controls="">
+                    <i class="fas fa-star"></i>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                     <span>Reviews</span>
                 </a>
             </li>

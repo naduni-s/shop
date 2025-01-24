@@ -51,29 +51,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-<<<<<<< HEAD
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Features
-            </div>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    <i class="fas fa-fw fa-user-plus"></i>
-                    <span>Registation</span>
-                </a>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Branch Admin</a>
-                    </div>
-                </div>
-            </li>
            
-                    <!-- Divider -->
-                    <hr class="sidebar-divider">
-=======
-           
->>>>>>> 5d9d91a (Initial commit or Updated files)
 
                     <!-- Heading -->
                     <div class="sidebar-heading">
@@ -97,11 +75,11 @@
                 </div>
             </li>
 
-          <!-- Nav Item - decant Collapse Menu -->
+          <!-- Nav Item - branch Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="{{route('adddecant')}}" aria-expanded="true" aria-controls="">
+    <a class="nav-link collapsed" href="{{route('addbranch')}}" aria-expanded="true" aria-controls="">
         <i class="fas fa-flask"></i>
-        <span>Add Decants</span>
+        <span>Add Branches</span>
     </a>
 </li>
 
@@ -126,19 +104,10 @@
 
              <!-- Nav Item - review Collapse Menu -->
              <li class="nav-item">
-<<<<<<< HEAD
-                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target=""
-                    aria-expanded="true" aria-controls="">
-                    <i class="fas fa-fw fa-star"></i>
-                    <span>Reviews</span>
-                </a>
-               
-=======
                 <a class="nav-link collapsed" href="{{route('admin.review')}}" aria-expanded="true" aria-controls="">
                     <i class="fas fa-star"></i>
                     <span>Reviews</span>
                 </a>
->>>>>>> 5d9d91a (Initial commit or Updated files)
             </li>
 
             <!-- Divider -->
@@ -171,8 +140,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $userName ?? 'Guest' }}</span>
-<img class="img-profile rounded-circle"
-                                    src="template/img/undraw_profile.svg">
+                                    <img class="img-profile rounded-circle" src="template/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -202,7 +170,7 @@
 
                  <!-- Page Heading -->
                  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Decants</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Branches</h1>
                 </div>
 
                 
@@ -224,34 +192,35 @@
 @endif
 
 
-                <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#addDecantModal">
+                <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#addBranchModal">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus"></i>
                     </span>
-                    <span class="text">Add New Decant</span>
+                    <span class="text">Add New Branch</span>
                 </a>
 
 
                 <br><br><br>
 
-                <!-- Decant List -->
+                <!-- Branch List -->
                 <div class="row">
-                    @foreach($decants as $decant)
+                    @foreach($branches as $branch)
                         <div class="col-md-3 mb-4">
                             <div class="card shadow-sm">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">{{ $decant->name }}</h5>
-                                    <p class="card-text text-success">Size: {{ $decant->size }}ml</p>
-                                    <p class="card-text text-success">Price: LKR {{ $decant->price }}</p>
-                
+                                    <h5 class="card-title">{{ $branch->name }}</h5>
+                                    <p class="card-text text-success">Address: {{ $branch->address }}</p>
+                                    <p class="card-text text-success">Latitude: {{ $branch->latitude }}</p>
+                                    <p class="card-text text-success">Longitude: {{ $branch->longitude }}</p>
+                                    <p class="card-text text-success">Details: {{ $branch->details }}</p>
                                     <div class="d-flex justify-content-center">
                                         <!-- Inline Edit Form -->
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editDecantModal{{ $decant->id }}">
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editBranchModal{{ $branch->id }}">
                                             Edit
                                         </button>
                                         &nbsp;&nbsp;
                                         <!-- Delete Button -->
-                                        <form action="{{ route('destroydecant', $decant->id) }}" method="POST">
+                                        <form action="{{ route('destroybranch', $branch->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -262,37 +231,46 @@
                         </div>
 
 
-                         <!-- Edit Decant Form -->
+                         <!-- Edit Branch Form -->
 
-                <div class="modal fade" id="editDecantModal{{ $decant->id }}" tabindex="-1" role="dialog" aria-labelledby="editDecantModalLabel{{ $decant->id }}" aria-hidden="true">
+                <div class="modal fade" id="editBranchModal{{ $branch->id }}" tabindex="-1" role="dialog" aria-labelledby="editBranchModalLabel{{ $branch->id }}" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editDecantModalLabel{{ $decant->id }}">Edit Decant</h5>
+                                <h5 class="modal-title" id="editBranchModalLabel{{ $branch->id }}">Edit Branch</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{ route('updatedecant', $decant->id) }}" method="POST">
+                            <form action="{{ route('updatebranch', $branch->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="editDecantName">Decant Name</label>
-                                        <input type="text" class="form-control" id="editDecantName" name="name" value="{{ $decant->name }}" required>
+                                        <label for="editBranchName">Branch</label>
+                                        <input type="text" class="form-control" id="editBranchName" name="name" value="{{ $branch->name }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="editDecantSize">Decant Size</label>
-                                        <input type="text" class="form-control" id="editDecantSize" name="size" value="{{ $decant->size }}" required>
+                                        <label for="editAddress">Address</label>
+                                        <input type="text" class="form-control" id="editAddress" name="address" value="{{ $branch->address }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="editDecantPrice">Decant Price</label>
-                                        <input type="text" class="form-control" id="editDecantPrice" name="price" value="{{ $decant->price }}" required>
+    <label for="editLatitude">Latitude</label>
+    <input type="number" class="form-control" id="editLatitude" name="latitude" value="{{ $branch->latitude }}" step="any" required>
+</div>
+<div class="form-group">
+    <label for="editLongitude">Longitude</label>
+    <input type="number" class="form-control" id="editLongitude" name="longitude" value="{{ $branch->longitude }}" step="any" required>
+</div>
+
+                                    <div class="form-group">
+                                        <label for="editDetails">Details</label>
+                                        <input type="text" class="form-control" id="editDetails" name="details" value="{{ $branch->details }}" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-success">Update Decant</button>
+                                    <button type="submit" class="btn btn-success">Update Branch</button>
                                 </div>
                             </form>
                         </div>
@@ -302,53 +280,47 @@
                     @endforeach
                 </div>
                 
-                <!-- Add Decant Form -->
-                <div class="modal fade" id="addDecantModal" tabindex="-1" role="dialog" aria-labelledby="addDecantModalLabel" aria-hidden="true">
+                <!-- Add Branch Form -->
+                <div class="modal fade" id="addBranchModal" tabindex="-1" role="dialog" aria-labelledby="addBranchModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="addDecantModalLabel">Add New Decant</h5>
+                                <h5 class="modal-title" id="addBranchModalLabel">Add New Branch</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{ route('storedecant') }}" method="POST">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="decantName">Decant Name</label>
-                                        <input type="text" class="form-control" id="decantName" name="name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="decantSize">Decant Size</label>
-                                        <input type="text" class="form-control" id="decantSize" name="size" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="decantPrice">Decant Price</label>
-                                        <input type="text" class="form-control" id="decantPrice" name="price" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-success">Add Decant</button>
-                                </form>
-                            </div>
+    <form action="{{ route('storebranch') }}" method="POST">
+        @csrf
+        <div class="form-group">
+            <label for="editBranchName">Branch</label>
+            <input type="text" class="form-control" id="editBranchName" name="name" value="" required>
+        </div>
+        <div class="form-group">
+            <label for="editAddress">Address</label>
+            <input type="text" class="form-control" id="editAddress" name="address" value="" required>
+        </div>
+        <div class="form-group">
+    <label for="editLatitude">Latitude</label>
+    <input type="number" class="form-control" id="editLatitude" name="latitude" value="{{ $branch->latitude }}" step="any" required>
+</div>
+<div class="form-group">
+    <label for="editLongitude">Longitude</label>
+    <input type="number" class="form-control" id="editLongitude" name="longitude" value="{{ $branch->longitude }}" step="any" required>
+</div>
+
+        <div class="form-group">
+            <label for="editDetails">Details</label>
+            <input type="text" class="form-control" id="editDetails" name="details" value="">
+        </div>
+        <button type="submit" class="btn btn-success">Add Branch</button>
+    </form>
+</div>
+
                         </div>
                     </div>
                 </div>
-
-               
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">

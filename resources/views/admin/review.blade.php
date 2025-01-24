@@ -13,12 +13,15 @@
 
     <!-- Custom fonts for this template-->
     <link href="template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="template/css/sb-admin-2.min.css" rel="stylesheet">
+    
 
 </head>
 
@@ -33,7 +36,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-tint"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Scentsation Store</div>
             </a>
@@ -51,29 +54,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-<<<<<<< HEAD
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Features
-            </div>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    <i class="fas fa-fw fa-user-plus"></i>
-                    <span>Registation</span>
-                </a>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Branch Admin</a>
-                    </div>
-                </div>
-            </li>
-           
-                    <!-- Divider -->
-                    <hr class="sidebar-divider">
-=======
-           
->>>>>>> 5d9d91a (Initial commit or Updated files)
+            
 
                     <!-- Heading -->
                     <div class="sidebar-heading">
@@ -92,28 +73,19 @@
                         <a class="collapse-item" href="{{ route('menproduct') }}">Men</a>
                         <a class="collapse-item" href="{{ route('womenproduct') }}">Women</a>
                         <a class="collapse-item" href="{{ route('unisexproduct') }}">Unisex</a>
+                       
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - branch Collapse Menu -->
           <!-- Nav Item - branch Collapse Menu -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="{{ route('admin.branches') }}" aria-expanded="true" aria-controls="">
-        <i class="fas fa-fw fa-store"></i>
-        <span>Branches</span>
+    <a class="nav-link collapsed" href="{{route('adddecant')}}" aria-expanded="true" aria-controls="">
+        <i class="fas fa-flask"></i>
+        <span>Add Decants</span>
     </a>
 </li>
 
-             <!-- Nav Item - review Collapse Menu -->
-             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target=""
-                    aria-expanded="true" aria-controls="">
-                    <i class="fas fa-fw fa-star"></i>
-                    <span>Reviews</span>
-                </a>
-               
-            </li>
 
            <!-- Nav Item - orders Collapse Menu -->
 <li class="nav-item">
@@ -125,19 +97,29 @@
     <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Order Catogeries</h6>
-            <a class="collapse-item" href="">Subscription Plan</a>
-            <a class="collapse-item" href="">Refiliing Oders</a>
-            <a class="collapse-item" href="">Delivery</a>
+            <a class="collapse-item" href="{{ route('test-submit') }}">Subscription Plan</a>
+            <a class="collapse-item" href="{{ route('admin.refilling') }}">Refiliing Requests</a>
+            <a class="collapse-item" href="{{ route('admin.refillpayment') }}">Refilling Payment</a>
         </div>
     </div>
 </li>
 
 
+           
+             <!-- Nav Item - review Collapse Menu -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('admin.review')}}" aria-expanded="true" aria-controls="">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews</span>
+                </a>
+            </li>
+            
+
             <!-- Divider -->
             <hr class="sidebar-divider">
         </ul>
         <!-- End of Sidebar -->
-        
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -190,54 +172,56 @@
                 </nav>
                 <!-- End of Topbar -->
 
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="container mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Manage Reviews</h2>
+                    
+                        @if($reviews->isEmpty())
+                            <p class="text-gray-500">No reviews found.</p>
+                        @else
+                            <table class="min-w-full bg-white rounded-lg shadow-lg">
+                                <thead>
+                                    <tr class="bg-gray-200 text-gray-700 text-sm font-semibold">
+                                        
+                                        <th class="py-3 px-4 text-left">User</th>
+                                        <th class="py-3 px-4 text-left">Review</th>
+                                        <th class="py-3 px-4 text-left">Rating</th>
+                                        <th class="py-3 px-4 text-left">Date</th>
+                                        <th class="py-3 px-4 text-left">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($reviews as $review)
+                                        <tr class="border-b">
+                                            
+                                            <td class="py-3 px-4">{{ $review->user->name }}</td>
+                                            <td class="py-3 px-4">{{ $review->review }}</td>
+                                            <td class="py-3 px-4 text-yellow-500">
+                                                {{ str_repeat('★', $review->rating) }}
+                                                {{ str_repeat('☆', 5 - $review->rating) }}
+                                            </td>
+                                            <td class="py-3 px-4">{{ $review->created_at->format('d M, Y') }}</td>
+                                            <td class="py-3 px-4">
+                                                <!-- Delete Review -->
+                                                <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this review?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="bg-red-500 text-white px-4 py-1 rounded-lg hover:bg-red-600">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @endif
+                    </div>
 
+<br><br><br>
 
+            
 
-                <div class="container mx-auto p-8">
-                    <h2 class="text-3xl font-bold mb-6">Refill Requests</h2>
-                
-                    <table class="table-auto w-full border-collapse border border-gray-200">
-                        <thead>
-                            <tr>
-                                <th class="border border-gray-300 px-4 py-2">ID</th>
-                                <th class="border border-gray-300 px-4 py-2">Name</th>
-                                <th class="border border-gray-300 px-4 py-2">Phone</th>
-                                <th class="border border-gray-300 px-4 py-2">Address</th>
-                                <th class="border border-gray-300 px-4 py-2">Decants</th>
-                                <th class="border border-gray-300 px-4 py-2">Notes</th>
-                                <th class="border border-gray-300 px-4 py-2">Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($refillDetails as $detail)
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detail->id }}</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detail->name }}</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detail->phone }}</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detail->address }}</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detail->decants }}</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detail->notes }}</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $detail->created_at->format('d M Y') }}</td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="7" class="border border-gray-300 px-4 py-2 text-center">No refill requests found.</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
-                
-
-
-
-
-
-
-
-
-
-                <!-- End of Main Content -->
+            <!-- End of Main Content -->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">

@@ -3,8 +3,13 @@
 @section('content')
 
 <body class="bg-gray-100 text-gray-800">
+<<<<<<< HEAD
     <div class="container mx-auto p-8 bg-white shadow-md">
         <h1 class="text-3xl font-bold text-center mb-6">Privacy Policy</h1>
+=======
+    <div class="container mx-auto p-6 bg-white shadow-md">
+        <h1 class="text-3xl font-bold text-center mb-4">Privacy Policy</h1>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
         
         <section class="mb-6">
             <h2 class="text-xl font-semibold">Our Usage on Data</h2>

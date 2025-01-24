@@ -8,6 +8,10 @@
         "php": "^8.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+<<<<<<< HEAD
+=======
+        "laravel/ui": "^4.6",
+>>>>>>> 5d9d91a (Initial commit or Updated files)
         "stripe/stripe-php": "^16.3"
     },
     "require-dev": {

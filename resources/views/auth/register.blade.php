@@ -18,7 +18,11 @@
 
         <!-- Password -->
         <div class="mt-4">
+<<<<<<< HEAD
             <x-input-label for="password" :value="__('Password')" />
+=======
+            <x-input-label for="password" :value="__('Password *(Min 8 characters, At least one uppercase, At least one lowercase, At least one number)')" />
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"

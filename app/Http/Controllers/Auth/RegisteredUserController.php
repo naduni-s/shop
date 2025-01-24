@@ -36,7 +36,11 @@ class RegisteredUserController extends Controller
             'regex:/[A-Z]/',             // At least one uppercase letter
             'regex:/[a-z]/',             // At least one lowercase letter
             'regex:/[0-9]/',             // At least one number
+<<<<<<< HEAD
             'regex:/[@$!%*?&]/'],
+=======
+            'regex:/[@#$!%*?&]/'],
+>>>>>>> 5d9d91a (Initial commit or Updated files)
         ]);
 
         $user = User::create([

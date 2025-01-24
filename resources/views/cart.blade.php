@@ -16,7 +16,11 @@
                     <th class="px-4 py-2 text-left">Price</th>
                     <th class="px-4 py-2 text-left">Quantity</th>
                     <th class="px-4 py-2 text-left">Total</th>
+<<<<<<< HEAD
                     <th class="px-4 py-2 text-left">Action</th>
+=======
+                    <th class="px-4 py-2 text-left"></th>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                 </tr>
             </thead>
             <tbody>

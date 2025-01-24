@@ -53,20 +53,29 @@ class RefillRequestController extends Controller
         return view('decantrefill', compact('decants'));
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5d9d91a (Initial commit or Updated files)
     public function index()
     {
         // Get requests for the logged-in user
         $requests = RefillRequest::where('user_id', Auth::id())->with(['decant'])->get();
       
+<<<<<<< HEAD
     
+=======
+>>>>>>> 5d9d91a (Initial commit or Updated files)
         // Pass the data to the view
         return view('requests', compact('requests'));
     }
 
+<<<<<<< HEAD
 
 
     
+=======
+>>>>>>> 5d9d91a (Initial commit or Updated files)
     public function destroy($id)
     {
         $request = RefillRequest::findOrFail($id); // Replace 'RefillRequest' with your model name
@@ -75,9 +84,12 @@ class RefillRequestController extends Controller
         return redirect()->route('admin.refilling')->with('success', 'Request deleted successfully.');
     }
     
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 5d9d91a (Initial commit or Updated files)
     // View the admin refilling requests and payment details
     public function adminView()
     {

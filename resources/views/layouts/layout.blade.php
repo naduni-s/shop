@@ -73,6 +73,7 @@
     }
 
     #cart-count {
+<<<<<<< HEAD
         position: absolute;
         top: 0;
         right: 0;
@@ -82,6 +83,33 @@
         border-radius: 50%;
         padding: 2px 6px;
     }
+=======
+    font-size: 0.5rem; /* Smaller text */
+    width: 0.8rem;
+    height: 0.8rem;
+    padding: 0.25rem;
+    line-height: 1rem;
+    text-align: center;
+    }
+    .search-bar {
+            width: 50%; /* Adjust width for smaller screens */
+            margin: 0 auto; /* Center the search bar */
+        }
+        .mobile-icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .mobile-links {
+            display: block; /* Make them stack on mobile */
+            margin-top: 1rem; /* Add spacing between them */
+        }
+        .mobile-links a {
+            display: block; /* Make links block-level */
+            margin-top: 0.5rem; /* Add margin between links */
+        }
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 }
 
 </style>
@@ -102,7 +130,11 @@
                 <a href="{{ route('store-locator') }}" class="hover:underline">Store Locator</a>
                 <a href="{{ route('recommender') }}" class="hover:underline">Perfume Recommender</a>
             </div>
+<<<<<<< HEAD
             <div class="md:hidden w-full space-y-4 flex flex-col items-center mt-4">
+=======
+            <div class="md:hidden w-full space-y-3 flex flex-col items-center mt-4">
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                 <a href="{{ route('home') }}" class="hover:underline">Home</a>
                 <a href="{{ route('formen') }}" class="hover:underline">Mens</a>
                 <a href="{{ route('forwomen') }}" class="hover:underline">Women</a>
@@ -140,7 +172,11 @@
                 </a>
             </div>
             <!-- Search Bar -->
+<<<<<<< HEAD
             <form action="{{ route('search') }}" method="GET" class="flex items-center space-x-2 w-full md:w-auto mx-auto">
+=======
+            <form action="{{ route('search') }}" method="GET" class="search-bar flex items-center space-x-2 w-full md:w-auto mx-auto">
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                 <input type="text" name="query" placeholder="Search Products" class="px-6 py-1 rounded-full text-black w-full md:w-96 lg:w-128">
                 <button type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 cursor-pointer text-white">
@@ -166,6 +202,7 @@
     </span>
 </div>
 
+<<<<<<< HEAD
 <!-- Requests Icon -->
 <div class="hidden md:block relative mr-10">
     <a href="{{ route('refilling_request.index') }}" class="flex items-center space-x-2">
@@ -175,12 +212,34 @@
 </div>
 
 <!-- Tracking Icon -->
+=======
+<!-- Desktop Version for Requests and Tracking -->
+<div class="hidden md:block relative mr-10">
+    <a href="{{ route('refilling_request.index') }}" class="flex items-center space-x-2">
+        <span class="text-sm font-medium text-white">My Requests</span>
+    </a>
+</div>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 <div class="hidden md:block relative mr-12">
     <a href="{{route('tracking')}}" class="flex items-center space-x-2 hover:text-gray-700 transition duration-200">
         <span class="text-sm font-medium text-white">Tracking</span>
     </a>
 </div>
 
+<<<<<<< HEAD
+=======
+<!-- Mobile Version for Requests and Tracking -->
+<div class="mobile-links md:hidden">
+    <div class="relative block">
+        <a href="{{ route('refilling_request.index') }}" class="text-sm font-medium text-white">My Requests</a>
+    </div>
+    <div class="relative block">
+        <a href="{{ route('tracking') }}" class="text-sm font-medium text-white">Tracking</a>
+    </div>
+</div>
+
+
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 
 
         </div>
@@ -262,7 +321,11 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">Customer Care</h4>
                 <ul class="space-y-1">
+<<<<<<< HEAD
                     <li><a href="#" class="hover:underline">Terms & Conditions</a></li>
+=======
+                    <li><a href="{{ route('terms-and-conditions') }}" class="hover:underline">Terms & Conditions</a></li>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
                     <li><a href="{{ route('privacy') }}" class="hover:underline">Privacy Policy</a></li>
                 </ul>
             </div>

@@ -10,12 +10,20 @@
             <div class="flex items-center space-x-2"> 
             <form method="GET" action="{{ route('filter.unisex') }}" class="flex items-center space-x-2">
                 <label class="text-sm font-medium">Filter by price</label>
+<<<<<<< HEAD
                 <input type="range" id="price-range" name="max_price" class="w-40" min="4500" max="15000" value="15000" step="100" oninput="updatePrice()">
                 <span class="text-sm">Price LKR <span id="price-min">4500</span> - LKR <span id="price-max">15000</span></span>
                 <button type="submit" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Filter</button>
             </form>
             </div>
 
+=======
+                <input type="range" id="price-range" name="max_price" class="w-40" min="700" max="3000" value="3000" step="100" oninput="updatePrice()">
+                <span class="text-sm">Price LKR <span id="price-min">700</span> - LKR <span id="price-max">3000</span></span>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Filter</button>
+            </form>
+            </div>
+>>>>>>> 5d9d91a (Initial commit or Updated files)
         </div>
 
         <h2 class="text-xl font-bold mt-8">Unisex</h2>

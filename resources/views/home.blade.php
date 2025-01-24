@@ -2,8 +2,11 @@
 @section('title', 'Home Page') 
 @section('content')
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5d9d91a (Initial commit or Updated files)
     <!-- Blurred background under the cards -->
     <div class="relative bg-cover bg-center bg-no-repeat h-[1200px] md:h-[1400px] rounded-lg" style="background-image: url('wallpaper.jpg');">
         <!-- Apply the blur effect to the background -->
@@ -130,7 +133,110 @@
                 Let us choose a perfume according to your liking.
             </p>
         </div>
+<<<<<<< HEAD
     </div>
+=======
+        
+    </div>
+    <br>
+<!-- Reviews Section -->
+<div class="container mx-auto p-6 bg-gray-100 rounded-lg shadow-md mt-8">
+    <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Customer Reviews</h2>
+
+    <!-- Check if reviews exist -->
+    @if($reviews->isEmpty())
+        <p class="text-gray-500 text-center">No reviews yet. Be the first to leave a review!</p>
+    @else
+        <!-- Reviews Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach($reviews as $review)
+                <div class="bg-white p-6 rounded-lg shadow flex flex-col items-start space-y-4">
+                    <!-- User Avatar Placeholder -->
+                    <div class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold">
+                        {{ strtoupper(substr($review->user->name, 0, 1)) }}
+                    </div>
+                    
+                    <!-- Review Content -->
+                    <div class="w-full">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-semibold text-lg text-gray-800">{{ $review->user->name }}</h3>
+                            <p class="text-sm text-gray-500">{{ $review->created_at->format('d M, Y') }}</p>
+                        </div>
+
+                        <!-- Rating -->
+                        <div class="text-yellow-500 my-1">
+                             <!-- Review Text -->
+                        <p class="text-gray-700 leading-relaxed mt-2">{{ $review->review }}</p>
+                            @for($i = 1; $i <= $review->rating; $i++)
+                                ★
+                            @endfor
+                            @for($i = $review->rating + 1; $i <= 5; $i++)
+                                ☆
+                            @endfor
+                        </div>
+
+                       
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @endif
+</div>
+<br><br>
+<!-- Add Review Form -->
+<div class="mt-6 p-6 bg-gray-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Tell Us About Your Experience </h2>
+    @auth
+        <form action="{{ route('reviews.store', $product->id) }}" method="POST" class="space-y-4">
+            @csrf
+            <!-- Review Textarea -->
+            <div>
+                <label for="review" class="block text-sm font-medium text-gray-700">Your Review</label>
+                <textarea 
+                    name="review" 
+                    id="review" 
+                    rows="4" 
+                    class="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Write your review here..." 
+                    required>
+                </textarea>
+            </div>
+
+            <!-- Rating Dropdown -->
+            <div>
+                <label for="rating" class="block text-sm font-medium text-gray-700">Your Rating</label>
+                <select 
+                    name="rating" 
+                    id="rating" 
+                    class="w-full mt-2 p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-yellow-500"
+                    required>
+                    <option value="5" class="text-yellow-500">★★★★★ (5 Stars)</option>
+                    <option value="4" class="text-yellow-500">★★★★☆ (4 Stars)</option>
+                    <option value="3" class="text-yellow-500">★★★☆☆ (3 Stars)</option>
+                    <option value="2" class="text-yellow-500">★★☆☆☆ (2 Stars)</option>
+                    <option value="1" class="text-yellow-500">★☆☆☆☆ (1 Star)</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button 
+                type="submit" 
+                class="w-full bg-blue-900 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition">
+                Submit Review
+            </button>
+        </form>
+    @else
+    <p class="text-center text-gray-500 mt-4">
+        Please 
+        <a href="{{ route('login') }}" class="text-blue-500 underline hover:text-blue-700">
+            login
+        </a> 
+        to leave a review.
+    </p>
+    @endauth
+</div>
+
+>>>>>>> 5d9d91a (Initial commit or Updated files)
 </div>
 <style>
     /* Custom fade-in animation */
